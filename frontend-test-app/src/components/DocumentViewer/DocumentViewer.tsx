@@ -8,11 +8,11 @@ import "react-pdf/dist/Page/TextLayer.css";
 import "./DocumentViewer.css";
 import AnnotationTools, {
   AnnotationType,
-} from "@/components/AnnotationTools/AnnotationTools";
-import SignaturePad from "@/components/SignaturePad/SignaturePad";
-import CommentBox from "@/components/CommentBox/CommentBox";
-import LoadingState from "@/components/LoadingState/LoadingState";
-import ErrorNotification from "@/components/ErrorNotification/ErrorNotification";
+} from "../AnnotationTools/AnnotationTools";
+import SignaturePad from "../SignaturePad/SignaturePad";
+import CommentBox from "../CommentBox/CommentBox";
+import LoadingState from "../LoadingState/LoadingState";
+import ErrorNotification from "../ErrorNotification/ErrorNotification";
 import { exportAnnotatedPDF } from "@/utils/pdfExport";
 import { Annotation } from "@/types/pdfExport";
 
