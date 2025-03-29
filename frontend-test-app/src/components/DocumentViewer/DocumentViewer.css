@@ -1,0 +1,202 @@
+/* Annotation Layer Styles */
+.annotationLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  transform-origin: 0 0;
+  z-index: 3;
+}
+
+/* Highlight Annotations */
+.annotationLayer .highlightAnnotation {
+  background-color: rgba(255, 255, 0, 0.3);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.annotationLayer .highlightAnnotation:hover {
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+/* Underline Annotations */
+.annotationLayer .underlineAnnotation {
+  border-bottom: 2px solid #4a90e2;
+  border-radius: 1px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+
+.annotationLayer .underlineAnnotation:hover {
+  border-color: #357abd;
+}
+
+/* Text Annotations (Comments) */
+.annotationLayer .textAnnotation {
+  cursor: pointer;
+  position: relative;
+}
+
+.annotationLayer .textAnnotation::before {
+  content: "💬";
+  font-size: 18px;
+  position: absolute;
+  top: -20px;
+  left: -2px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease;
+}
+
+.annotationLayer .textAnnotation:hover::before {
+  transform: scale(1.1);
+}
+
+/* Ink Annotations (Drawing/Signature) */
+.annotationLayer .inkAnnotation {
+  border: 2px solid #e74c3c;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease;
+}
+
+.annotationLayer .inkAnnotation:hover {
+  border-color: #c0392b;
+}
+
+/* Link Annotations */
+.annotationLayer .linkAnnotation {
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.annotationLayer .linkAnnotation:hover {
+  background-color: rgba(74, 144, 226, 0.1);
+  border-color: #4a90e2;
+}
+
+/* Popup Annotations */
+.annotationLayer .popupAnnotation {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  font-size: 14px;
+  max-width: 300px;
+  word-wrap: break-word;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.annotationLayer .popupAnnotation:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Selection styles */
+::selection {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+/* Annotation Tools Container */
+.annotation-tools {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  display: flex;
+  gap: 8px;
+  z-index: 1000;
+}
+
+.annotation-tools button {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.annotation-tools button:hover {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+.annotation-tools button.active {
+  background-color: #4a90e2;
+  color: white;
+  border-color: #357abd;
+}
+
+/* Loading and Error States */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background-color: #fff3f3;
+  border: 1px solid #ffcdd2;
+  border-radius: 8px;
+  padding: 20px;
+  color: #d32f2f;
+}
+
+/* Page Navigation */
+.page-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  padding: 8px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-navigation button {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.page-navigation button:hover:not(:disabled) {
+  background-color: #f5f5f5;
+  border-color: #ccc;
+}
+
+.page-navigation button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-navigation span {
+  font-size: 14px;
+  color: #666;
+}
