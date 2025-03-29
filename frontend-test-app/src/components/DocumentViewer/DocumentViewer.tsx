@@ -18,7 +18,9 @@ import { Annotation } from "@/types/pdfExport";
 
 // Initialize PDF.js worker
 if (typeof window !== "undefined") {
-  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/legacy/build/pdf.worker.min.js`;
+  pdfjs.GlobalWorkerOptions.workerSrc =
+    process.env.NEXT_PUBLIC_PDFJS_WORKER_URL ||
+    `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 }
 
 interface DocumentViewerProps {
